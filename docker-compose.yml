@@ -1,0 +1,16 @@
+services:
+  web:
+    build: .
+    cap_add:
+      - SYS_ADMIN
+      - NET_ADMIN
+    command: python app.py
+    ports:
+      - "8080:8080"
+    networks:
+      - net1
+
+networks:
+  net1:
+    driver: bridge
+    external: true
